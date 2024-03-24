@@ -1,0 +1,21 @@
+.header {
+  width: 100%;
+  height: rem(64);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: $header-level;
+
+  &__logo {
+    @include bg("logo.svg");
+    width: rem(53);
+    height: rem(29);
+    background-size: cover;
+    margin: rem(8) rem(12);
+
+    @include responsive(D) {
+      width: rem(85);
+      height: rem(46);
+    }
+  }
+}
