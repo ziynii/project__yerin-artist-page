@@ -1,0 +1,14 @@
+.section-title {
+  @include h2;
+  text-align: right;
+  margin-top: rem(60);
+  margin-right: rem(12);
+  color: $white;
+  text-shadow: rem(-1) 0 $blue-main, 0 rem(1) $blue-main, rem(1) 0 $blue-main,
+    0 rem(-1) $blue-main;
+  font-family: "GangwonEduPowerExtraBoldA";
+
+  @include responsive(D) {
+    @include h1;
+  }
+}
