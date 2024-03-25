@@ -1,0 +1,73 @@
+.video {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .swiper {
+    width: 100%;
+    padding-bottom: 50px;
+
+    @include responsive(D) {
+      max-width: rem(1136);
+    }
+  }
+
+  .swiper-slide {
+    position: relative;
+    padding-top: 25px;
+    width: vw(260);
+    height: vw(146);
+
+    @include responsive(D) {
+      max-width: rem(792);
+      max-height: rem(470);
+    }
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .swiper-button {
+    &-prev,
+    &-next {
+      width: rem(32);
+      height: rem(32);
+      border-radius: rem(48);
+      background-color: $blue-light;
+      color: $blue-main !important;
+      box-shadow: $shadow-6px;
+
+      &::after {
+        font-family: none;
+        content: none;
+      }
+    }
+
+    &-prev {
+      @include bg("ico_arrow-left.svg", center);
+      background-size: cover;
+    }
+
+    &-next {
+      @include bg("ico_arrow-right.svg", center);
+      background-size: cover;
+    }
+  }
+
+  .swiper-pagination-bullet {
+    width: rem(16);
+    height: rem(2);
+    background-color: $blue-light;
+    margin: 0 rem(4) !important;
+    border-radius: rem(16);
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: $blue-main;
+  }
+}
