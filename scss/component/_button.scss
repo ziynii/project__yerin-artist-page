@@ -1,0 +1,36 @@
+.btn {
+  &--round {
+    padding: rem(4) rem(8);
+    border-radius: rem(4);
+    background-color: $blue-main;
+    color: $white;
+  }
+
+  &--square {
+    background-color: $blue-main;
+    color: $white;
+    padding: rem(8);
+    transition: 0.3s;
+
+    &:hover {
+      background-color: $blue-accent;
+    }
+
+    &.go {
+      @include b4;
+      font-weight: 600;
+      gap: rem(8);
+
+      @include responsive(D) {
+        @include b2;
+      }
+
+      .ico--arrow {
+        @include bg("ico_arrow-right.svg");
+        width: rem(24);
+        height: rem(24);
+        display: inline-block;
+      }
+    }
+  }
+}
