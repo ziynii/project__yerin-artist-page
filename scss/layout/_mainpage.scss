@@ -1,0 +1,68 @@
+.mainpage {
+  @include bg("main-image.jpeg", center);
+
+  &__text-box {
+    @include position(right, rem(16), top, rem(160));
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    color: $white;
+
+    .title {
+      @include h3;
+      animation: showText 0.7s linear;
+
+      @include responsive(D) {
+        @include h1;
+      }
+    }
+
+    .sub-title {
+      @include b3;
+      margin-top: rem(12);
+      animation: showText 0.7s linear 0.2s;
+
+      @include responsive(D) {
+        @include h3;
+        margin-top: rem(24);
+      }
+    }
+
+    .hr-line {
+      height: rem(1);
+      width: rem(64);
+      background-color: $white;
+      opacity: 0.5;
+      border: none;
+      text-align: right;
+      margin-top: rem(24);
+      animation: showText 0.7s linear 0.4s;
+
+      @include responsive(D) {
+        width: rem(120);
+        margin-top: rem(48);
+      }
+    }
+  }
+}
+
+.main {
+  background: linear-gradient(
+    179.86deg,
+    #7b9ca5 13.23%,
+    #ffffff 54.82%,
+    #7b9ca5 99.88%
+  );
+}
+
+@keyframes showText {
+  0% {
+    transform: translateX(rem(120));
+  }
+  50% {
+    transform: translateX(rem(-24));
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
