@@ -1,0 +1,389 @@
+.news {
+  &__content-wrap {
+    height: calc(100% - rem(216));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: rem(48);
+
+    @include responsive(T) {
+      flex-direction: row;
+      gap: rem(24);
+    }
+
+    @include responsive(D) {
+      max-width: rem(1136);
+      margin: 0 auto;
+    }
+
+    .tab {
+      &-list {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+
+        @include responsive(T) {
+          flex-direction: column;
+          width: rem(170);
+          height: rem(380);
+          justify-content: flex-start;
+        }
+      }
+
+      &-item {
+        width: 100%;
+        padding: rem(8) 0;
+        border-bottom: rem(1) solid $white;
+
+        @include responsive(T) {
+          padding: rem(16) 0;
+          border-bottom: none;
+          border-right: rem(1) solid $white;
+        }
+
+        &.is-active {
+          border-bottom: rem(1) solid $blue-main;
+
+          @include responsive(T) {
+            border-bottom: none;
+            border-right: rem(1) solid $blue-main;
+          }
+
+          .tab-button {
+            color: $blue-main;
+
+            .icon {
+              &.sns-icon {
+                @include bg("ico_sns-blue.svg");
+              }
+
+              &.news-icon {
+                @include bg("ico_news-blue.svg");
+              }
+
+              &.notice-icon {
+                @include bg("ico_notice-blue.svg");
+              }
+            }
+          }
+        }
+      }
+
+      &-button {
+        @include b1;
+        color: $white;
+        background-color: transparent;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: rem(8);
+
+        @include responsive(T) {
+          justify-content: flex-start;
+        }
+
+        .icon {
+          width: rem(24);
+          height: rem(24);
+
+          &.sns-icon {
+            @include bg("ico_sns-white.svg");
+          }
+
+          &.news-icon {
+            @include bg("ico_news-white.svg");
+          }
+
+          &.notice-icon {
+            @include bg("ico_notice-white.svg");
+          }
+        }
+      }
+    }
+  }
+
+  &__content {
+    width: 100%;
+
+    .content {
+      display: none;
+
+      &.is-select {
+        display: block;
+        animation: showCarousel 0.3s ease;
+      }
+    }
+
+    @include responsive(T) {
+      width: 70%;
+    }
+
+    @include responsive(D) {
+      width: 80%;
+    }
+
+    .sns-carousel {
+      .swiper-slide {
+        display: flex;
+        flex-direction: column;
+        width: rem(285);
+        height: rem(380);
+        border-radius: rem(18);
+        justify-content: space-between;
+        padding: rem(24) rem(16);
+        align-items: end;
+
+        @include responsive(D) {
+          filter: saturate(0.5);
+          transition: 0.3s;
+
+          &:hover {
+            filter: inherit;
+          }
+        }
+      }
+
+      .sns {
+        &__btn--go {
+          @include bg("ico_open.svg", center);
+          width: rem(32);
+          height: rem(32);
+          background-color: $white;
+          border-radius: rem(32);
+
+          &:hover {
+            background-color: $grey50;
+          }
+        }
+
+        &__profile {
+          display: flex;
+          justify-content: space-between;
+          align-self: center;
+          width: 100%;
+          padding: rem(8) rem(8);
+          border-radius: rem(24);
+          backdrop-filter: blur(rem(10));
+
+          .thumb {
+            @include bg("sns-profile.jpg");
+
+            width: rem(32);
+            height: rem(32);
+            background-size: cover;
+            border-radius: rem(32);
+          }
+
+          .name {
+            margin-left: rem(8);
+
+            .caption {
+              font-size: rem(10);
+              color: $white;
+              opacity: 0.5;
+            }
+
+            .id {
+              @include b4;
+              color: $white;
+            }
+          }
+
+          .follower {
+            @include b4;
+            margin-right: rem(4);
+            color: $white;
+            display: flex;
+            align-items: center;
+
+            img {
+              margin-right: rem(4);
+            }
+          }
+        }
+
+        &01 {
+          @include bg("sns01.jpg", center);
+          background-size: cover;
+        }
+
+        &02 {
+          @include bg("sns02.jpg", center);
+          background-size: cover;
+        }
+
+        &03 {
+          @include bg("sns03.jpg", center);
+          background-size: cover;
+        }
+
+        &04 {
+          @include bg("sns04.jpg", center);
+          background-size: cover;
+        }
+
+        &05 {
+          @include bg("sns05.jpg", center);
+          background-size: cover;
+        }
+      }
+    }
+
+    .article-carousel {
+      .swiper-slide {
+        width: rem(285);
+        height: rem(380);
+      }
+
+      .article-item {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        cursor: pointer;
+
+        &:hover {
+          .article-item {
+            &__thumb {
+              filter: brightness(0.7);
+            }
+
+            &__text {
+              .title {
+                color: $blue-main;
+              }
+
+              .info {
+                color: $grey600;
+              }
+            }
+          }
+        }
+
+        .article {
+          &-item {
+            &__thumb {
+              width: 100%;
+              height: 80%;
+              border-radius: rem(18);
+              transition: 0.3s;
+
+              &.thumb01 {
+                @include bg("news01.jpeg", center);
+                background-size: cover;
+              }
+              &.thumb02 {
+                @include bg("news02.jpeg", center);
+                background-size: cover;
+              }
+              &.thumb03 {
+                @include bg("news03.jpeg", center);
+                background-size: cover;
+              }
+              &.thumb04 {
+                @include bg("news04.png", center);
+                background-size: cover;
+              }
+              &.thumb05 {
+                @include bg("news05.jpeg", center);
+                background-size: cover;
+              }
+            }
+
+            &__text {
+              padding: rem(8) rem(4);
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              flex-grow: 1;
+
+              .title {
+                @include b3;
+                transition: 0.3s;
+                color: $grey700;
+              }
+
+              .info {
+                @include b4;
+                display: flex;
+                justify-content: space-between;
+                color: $grey500;
+                transition: 0.3s;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .notice {
+      height: rem(380);
+
+      &__item {
+        padding: rem(16) rem(8);
+        border-bottom: rem(1) solid $blue-light;
+        transition: 0.2s;
+        display: flex;
+        flex-direction: column;
+        gap: rem(8);
+
+        @include responsive(D) {
+          flex-direction: row;
+          justify-content: space-between;
+        }
+
+        &:hover {
+          background-color: rgba($blue-light, 0.2);
+
+          .title {
+            color: $blue-main;
+          }
+        }
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        .title {
+          @include b2;
+          color: $grey700;
+          transition: 0.2s;
+        }
+
+        .info {
+          @include b4;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          @include responsive(D) {
+            width: 20%;
+            justify-content: space-between;
+          }
+
+          .author {
+            color: $grey500;
+          }
+
+          .date {
+            color: $grey500;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes showCarousel {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
