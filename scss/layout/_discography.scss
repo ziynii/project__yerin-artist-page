@@ -1,0 +1,149 @@
+.discography {
+  &__carousel {
+    height: calc(100% - rem(216));
+  }
+
+  .album {
+    display: flex;
+    flex-direction: column;
+    gap: rem(32);
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: 0.9s;
+
+    &.active {
+      opacity: 1;
+    }
+
+    @include responsive(T) {
+      flex-direction: row;
+    }
+
+    &__info {
+      width: vw(302);
+      max-width: rem(465);
+
+      .title {
+        @include h2;
+        color: $blue-accent;
+        position: relative;
+
+        @include responsive(D) {
+          @include h3;
+        }
+
+        &::after {
+          content: "";
+          width: 0;
+          height: rem(12);
+          display: inline-block;
+          background: $blue-light;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          z-index: -1;
+          transition: 0.7s;
+        }
+
+        &.active {
+          &::after {
+            width: 100%;
+          }
+        }
+      }
+
+      .content {
+        margin-top: rem(24);
+
+        .hashtag {
+          @include b4;
+          color: $grey500;
+          line-height: rem(20);
+          min-height: rem(60);
+
+          @include responsive(D) {
+            @include b2;
+          }
+        }
+
+        .go {
+          margin-top: rem(16);
+        }
+      }
+    }
+
+    &__thumb {
+      width: vw(302);
+      height: vw(302);
+      overflow: hidden;
+      position: relative;
+      max-width: rem(465);
+      max-height: rem(465);
+
+      @include responsive(T) {
+        width: rem(302);
+        height: rem(302);
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+
+      &.active {
+        img {
+          animation-name: zoom;
+          animation-duration: 15s;
+        }
+      }
+    }
+
+    &__nav {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: flex;
+
+      .btn {
+        &--prev,
+        &--next {
+          width: rem(50);
+          height: rem(50);
+          transition: 0.3s;
+          cursor: pointer;
+
+          &:hover {
+            background-color: rgba($color: #fff, $alpha: 0.35);
+          }
+
+          &.swiper-button-disabled {
+            opacity: 0.3;
+
+            &:hover {
+              background-color: transparent;
+            }
+          }
+        }
+
+        &--prev {
+          @include bg("ico_chevron-left.svg", center);
+        }
+
+        &--next {
+          @include bg("ico_chevron-right.svg", center);
+        }
+      }
+    }
+  }
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.2);
+  }
+}
