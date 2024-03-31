@@ -46,6 +46,21 @@
       background-color: $blue-light;
       color: $blue-main !important;
       border: rem(1) solid $white;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+        background-color: rgba($white, 0.3);
+      }
+
+      &.swiper-button-disabled {
+        opacity: 0.4;
+        cursor: default;
+
+        &:hover {
+          background-color: transparent;
+        }
+      }
     }
 
     &-prev {
