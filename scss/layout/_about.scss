@@ -40,7 +40,7 @@
       }
 
       .image-content {
-        @include bg("about-image.jpeg");
+        @include bg("about-image.jpeg", center, center);
         @include position(left, rem(-12), top, rem(12));
         background-size: cover;
         width: 100%;
