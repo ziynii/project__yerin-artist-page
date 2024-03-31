@@ -27,8 +27,8 @@ var swiper = new Swiper(".video-carousel", {
     el: ".swiper-pagination",
   },
   navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
+    nextEl: ".video-button-next",
+    prevEl: ".video-button-prev",
   },
 });
 

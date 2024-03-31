@@ -32,7 +32,12 @@
     }
   }
 
-  .swiper-button {
+  .video-button {
+    display: flex;
+    justify-content: flex-end;
+    padding: rem(24) rem(8);
+    gap: rem(8);
+
     &-prev,
     &-next {
       width: rem(32);
@@ -40,22 +45,17 @@
       border-radius: rem(48);
       background-color: $blue-light;
       color: $blue-main !important;
-      box-shadow: $shadow-6px;
-
-      &::after {
-        font-family: none;
-        content: none;
-      }
+      border: rem(1) solid $white;
     }
 
     &-prev {
-      @include bg("ico_arrow-left.svg", center);
-      background-size: cover;
+      @include bg("ico_chevron-left.svg", center);
+      background-size: 60%;
     }
 
     &-next {
-      @include bg("ico_arrow-right.svg", center);
-      background-size: cover;
+      @include bg("ico_chevron-right.svg", center);
+      background-size: 60%;
     }
   }
 
