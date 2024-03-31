@@ -1,0 +1,12 @@
+.footer {
+  padding: rem(24) rem(8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__logo {
+    @include bg("footer_logo.svg", center, center);
+    width: rem(120);
+    height: rem(40);
+  }
+}
