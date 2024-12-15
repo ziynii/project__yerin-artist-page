@@ -610,6 +610,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
+  border: none;
 }
 .video .video-button {
   display: flex;
@@ -1040,7 +1041,8 @@ body {
   width: 100%;
   padding: 0.8rem 0.8rem;
   border-radius: 2.4rem;
-  backdrop-filter: blur(1rem);
+  -webkit-backdrop-filter: blur(1rem);
+          backdrop-filter: blur(1rem);
 }
 .news__content .sns-carousel .sns__profile .thumb {
   background: url(../images/sns-profile.jpg) no-repeat;
@@ -1221,4 +1223,4 @@ body {
   to {
     opacity: 1;
   }
-}/*# sourceMappingURL=style.css.map */
+}
